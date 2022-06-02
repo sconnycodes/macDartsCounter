@@ -1,0 +1,22 @@
+{
+  "name": "macdartscounter",
+  "version": "1.0.0",
+  "description": "Dart Counter",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sconnycodes/macDartsCounter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sconnycodes/macDartsCounter/issues"
+  },
+  "homepage": "https://github.com/sconnycodes/macDartsCounter#readme",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
