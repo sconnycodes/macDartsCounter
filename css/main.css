@@ -1,0 +1,55 @@
+/* Custom CSS for MacDartCounter */
+/* Global */
+body {
+    max-width: 1280px;
+    margin: auto;
+}
+
+* {
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+
+}
+
+
+/*  on screen keyboard button number input */
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(3, auto);
+    grid-row-gap: 1px;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px solid red; 
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    
+}
+
+button {
+    background-color: #474141; /* Green */
+    border: none;
+    color: white;
+    
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 3rem;
+    /* border: 2px solid red;  */
+    width: 100%;
+    height: 5rem;
+  }
+
+button:active {
+    background-color: cornflowerblue;
+}
+
+
+/* === Main game info screen */
+.currentScore {
+    display: inline-block;
+}
+
