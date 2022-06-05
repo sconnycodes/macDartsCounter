@@ -10,15 +10,16 @@ buttons.forEach(item => {
     const {target} = event;
     const {value} = target;
     
-    // if (value == "back"){
+    if (value == "back"){
     //     return to previous playerScore
-    // } else if (value == "next") {
+        testGame.back()
+    } else if (value == "next") {
     //      deduct current turn score from playerScore
-    // } else {
+        testGame.next()
+    } else {
         // add value of button to currentScore
-        currentTurnScore.innerText += value
-        console.log(value)
-    // }
+        currentTurnScoreDisplay.innerText += value
+    }
     })
 });
 
@@ -29,15 +30,39 @@ class Game {
         this.mainScore = startNumber || 501,
         this.currentTurn = 0,
         this.prevTurn = 0
+        mainScoreDisplay.innerText = this.mainScore
     }
-    
+
     //function to run when next is clicked
     next(){
         //sub currentTurn score from mainScore and update display
+        this.currentTurn = parseInt(currentTurnScoreDisplay.innerText)
+        // check number is valid (180 and under)
+        if (this.currentTurn > 180 || this.currentTurn > this.mainScore){
+            this.updateMainScore()
+            alert("Invalid score")
+        } else {
+        // parseInt(currentTurnScore.innerText)
+        this.prevTurn = this.currentTurn
+        this.mainScore -= this.currentTurn
+        this.currentTurn = 0
+        this.updateMainScore()
+        
+        }
     }
 
     //function to run when back is clicked
     back(){
         //add prev turn score back to main and update display
+        
+        this.mainScore += this.prevTurn
+        this.updateMainScore()
+    }
+
+    updateMainScore(){
+        currentTurnScoreDisplay.innerText = ""
+        mainScoreDisplay.innerText = this.mainScore
     }
 };
+
+let testGame = new Game()
