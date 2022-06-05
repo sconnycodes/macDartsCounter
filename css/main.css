@@ -53,3 +53,9 @@ button:active {
     display: inline-block;
 }
 
+#currentTurnOutline {
+    border: 2px solid black;
+    width: 40%;
+    height: 2rem;
+    text-align: center;
+}
