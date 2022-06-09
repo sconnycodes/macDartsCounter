@@ -6,4 +6,4 @@ The base counter is for a standard game of 501. Classic dart rules apply.
 
 CSS - Normalize.css for the base styling.
 
-
+Live site - https://macdartcounter.netlify.app/
