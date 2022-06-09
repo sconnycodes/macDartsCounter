@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h2>MacDart Counter</h2>
+        <h1>MacDart Counter</h1>
     </header>
 
     <section class="scoreScreen">
@@ -18,14 +18,17 @@
             <h2 id="playerMainCount"></h2>
         </section>
 
-        <h3>Current turn score:</h3>
+        <div class="currScoreDiv">
+            <h3>Current turn score:</h3>
         <div id="currentTurnOutline">
             <span id="currentTurnScore"></span>
         </div>
+        </div>
+        
         
     </section>
 
-    <section class="">
+    <section class="numpadHolder">
         <ul class="numpad">
             <li><button type="button" value="1">1</button></li>
             <li><button type="button" value="2">2</button></li>
@@ -42,6 +45,10 @@
 
         </ul>
     </section>
+
+    <footer>
+        <span>&copy; Mark Mac Web Design 2022</span>
+    </footer>
     <script src="/js/main.js"></script>
 </body>
 </html>
