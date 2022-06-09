@@ -45,7 +45,7 @@ class Game {
         //sub currentTurn score from mainScore and update display
         this.currentTurn = parseInt(currentTurnScoreDisplay.innerText)
         // check number is valid (180 & below but without being more than total remaining or leaving a mainscore of 1)
-        if (this.currentTurn > 180 || this.currentTurn > this.mainScore || (this.mainScore - this.currentTurn == 1)){
+        if (this.currentTurn > 180 || this.currentTurn > this.mainScore || (this.mainScore - this.currentTurn == 1) || !this.currentTurn){
             this.updateMainScore()
             alert("Invalid score")
         } else {

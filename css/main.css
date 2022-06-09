@@ -63,6 +63,7 @@ button {
     /* border: 2px solid red;  */
     width: 100%;
     height: 13vh;
+    touch-action: manipulation;
   }
 
 button:active {
@@ -71,8 +72,8 @@ button:active {
 
 
 /* === Main game info screen */
-#currentScore {
-    display: inline-block;
+#currentTurnScore {
+    text-align: center;
     font-size: 2rem;
 }
 
@@ -86,7 +87,7 @@ button:active {
     display: inline-block;
     border: 2px solid rgb(190, 190, 190);
     width: 40%;
-    height: 2rem;
+    height: 3rem;
     text-align: center;
     margin-left: 2%;
 }
