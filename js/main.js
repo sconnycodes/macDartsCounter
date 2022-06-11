@@ -49,12 +49,27 @@ class Game {
             this.updateMainScore()
             alert("Invalid score")
         } else {
-        //an else if will eventually go before this to check for if mainScore == 0 and will function accordingly
+            // add currentTurn score to array of scores
         this.legScores.push(this.currentTurn)
-        this.legDartTotal += 3
+            //calc mainscore
         this.mainScore -= this.currentTurn
-        this.currentTurn = 0
-        this.updateMainScore()
+            //check if main is 0 and end game
+        if (this.mainScore == 0){
+            this.updateMainScore()
+            let turnDarts = +prompt("How many darts used for checkout?")
+            let doubleDarts = +prompt("How many darts used on double?")
+            this.legDartTotal += turnDarts
+            this.gameData.push([this.legScores, this.legDartTotal, doubleDarts])
+            this.restartGame()
+            
+        } else {
+            //each score that doesn't result in mainscore 0 will add 3 darts to total
+            this.legDartTotal += 3
+            this.currentTurn = 0
+            this.updateMainScore()
+        }
+
+        
         
         }
     }
@@ -65,16 +80,25 @@ class Game {
         if (this.mainScore < 501){
             this.mainScore += this.legScores.pop()
         }
-        
+        this.legDartTotal -= 3
         this.updateMainScore()
     }
 
+    //update score displays during turns
     updateMainScore(){
         currentTurnScoreDisplay.innerText = ""
         mainScoreDisplay.innerText = this.mainScore
     }
 
 
+    // restart game function resets scores and clear legscores and leg dart totals
+    restartGame(){
+        this.mainScore = 501
+        this.currentTurn = 0
+        this.legDartTotal = 0
+        this.legScores.splice(0, this.legScores.length)
+        this.updateMainScore()
+    }
 };
 
 let testGame = new Game()
