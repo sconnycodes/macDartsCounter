@@ -9,7 +9,7 @@ buttons.forEach(item => {
     item.addEventListener("click", event => {
     const {target} = event;
     const {value} = target;
-    
+    //check which button is pressed to trigger relevant function    
     if (value == "back"){
     //     return to previous playerScore
         testGame.back()
@@ -29,7 +29,6 @@ class Game {
     constructor(startNumber) {
         this.mainScore = startNumber || 501,
         this.currentTurn = 0,
-        
         mainScoreDisplay.innerText = this.mainScore,
         // keep track of scores in leg & number of darts taken
         this.legScores = [],
@@ -53,25 +52,9 @@ class Game {
         this.legScores.push(this.currentTurn)
             //calc mainscore
         this.mainScore -= this.currentTurn
-            //check if main is 0 and end game
-        if (this.mainScore == 0){
-            this.updateMainScore()
-            let turnDarts = +prompt("How many darts used for checkout?")
-            let doubleDarts = +prompt("How many darts used on double?")
-            this.legDartTotal += turnDarts
-            this.gameData.push([this.legScores, this.legDartTotal, doubleDarts])
-            this.restartGame()
-            
-        } else {
-            //each score that doesn't result in mainscore 0 will add 3 darts to total
-            this.legDartTotal += 3
-            this.currentTurn = 0
-            this.updateMainScore()
         }
-
-        
-        
-        }
+        //check if main is 0 and end game
+        this.gameEndCheck()
     }
 
     //function to run when back is clicked
@@ -90,14 +73,40 @@ class Game {
         mainScoreDisplay.innerText = this.mainScore
     }
 
+    // check if score is 0 and push current game to gameData if so.
+    gameEndCheck(){
+        if (this.mainScore == 0){
+            // last turn may take fewer than 3 darts so prompt for this & number of darts attempted on double
+            let turnDarts = +prompt("How many darts used for checkout?")
+            let doubleDarts = +prompt("How many darts used on double?")
+            this.legDartTotal += turnDarts
+            this.gameData.push({
+                legScores: this.legScores.map(x => x), 
+                legDartTotal: this.legDartTotal, 
+                doubleDarts: doubleDarts 
+                })
+            this.updateMainScore()
+            // this.restartGame()
+            this.restartGame()   
+        } else {
+            //each score that doesn't result in mainscore 0 will add 3 darts to total
+            this.legDartTotal += 3
+            this.currentTurn = 0
+            this.updateMainScore()
+        }
+    }
 
     // restart game function resets scores and clear legscores and leg dart totals
     restartGame(){
+        let restart = confirm("Start new game?")
+        if (restart){
         this.mainScore = 501
         this.currentTurn = 0
         this.legDartTotal = 0
         this.legScores.splice(0, this.legScores.length)
         this.updateMainScore()
+        }
+        
     }
 };
 
