@@ -87,7 +87,10 @@ class Game {
                 })
             this.updateMainScore()
             // this.restartGame()
-            this.restartGame()   
+            this.restartGame()
+            
+            // in here add in post to send gameData once game is complete (best of 11 legs for test build)
+
         } else {
             //each score that doesn't result in mainscore 0 will add 3 darts to total
             this.legDartTotal += 3
